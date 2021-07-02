@@ -1,3 +1,5 @@
 mysql
 
 docker-compose.yml
+
+.DS_Store
