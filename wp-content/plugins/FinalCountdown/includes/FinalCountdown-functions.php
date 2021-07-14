@@ -1,6 +1,3 @@
-<!-- <script src="wp-content/plugins/FinalCountdown/jquery.min.js" type="text/javascript"></script>
-<script src="script.js" type="text/javascript"></script> -->
-
 <?php
 
 add_action('wp_footer', 'FinalCountdown_FooterText');
@@ -26,6 +23,7 @@ function FinalCountdown_FooterText(){
             </div>
           </div> 
           ";
+          var_dump( $result->get_error_data() ) ; exit( 0 ) ;
 }
 
 add_action( 'wp_enqueue_scripts', 'scripts');
@@ -53,7 +51,22 @@ function FinalCountdown_AdminLink(){
 add_shortcode('FinalCountdown', 'FinalCountdownShortcode');
 
 function FinalCountdownShortcode(){
-    return "<b>Shortcode Final Countdown</b>";
+    return "<div class=\"wrap\"
+    <div class=\"content\">
+        <h1>Coming soon</h1>
+        <p>DU TEXTE</p>
+        <div class=\"numbers\">
+            <div class=\"bloc\" id=\"days\">
+            </div>
+            <div class=\"bloc\" id=\"hours\">
+            </div>
+            <div class=\"bloc\" id=\"minutes\">
+            </div>
+            <div class=\"bloc\" id=\"seconds\">
+            </div>
+        </div>
+    </div>
+  </div>";
 }
 
 //[FinalCountdown att="value"]
@@ -129,3 +142,4 @@ add_action('widgets_init', 'FinalCountdown_Registerwidgets');
 function FinalCountdown_Registerwidgets() {
     register_widget('FinalCountdown_Widget');
 }
+

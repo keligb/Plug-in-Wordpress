@@ -1,8 +1,3 @@
-// console.log('coucou');
-
-
-
-
 jQuery(function($){
     var launch = new Date(2021,06,14,23,00,00);
     var days = $('#days');
@@ -12,8 +7,6 @@ jQuery(function($){
 
     setDate();
     function setDate(){
-
-        // console.log('coucou');
 
         var now = new Date();
         var s = ((launch.getTime() - now.getTime())/1000) - now.getTimezoneOffset()*60;
@@ -35,5 +28,3 @@ jQuery(function($){
         setTimeout(setDate, 1000);
     }
 });
-
-// console.log('coucou');
