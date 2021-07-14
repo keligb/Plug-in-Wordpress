@@ -1,11 +1,38 @@
-<?php
+<!-- <script src="wp-content/plugins/FinalCountdown/jquery.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script> -->
 
-//Test
+<?php
 
 add_action('wp_footer', 'FinalCountdown_FooterText');
 
 function FinalCountdown_FooterText(){
     echo "<i>Le plugin Final Countdown est activé</i>";
+
+    echo " 
+         <div class=\"wrap\"
+            <div class=\"content\">
+                <h1>Coming soon</h1>
+                <p>DU TEXTE</p>
+                <div class=\"numbers\">
+                    <div class=\"bloc\" id=\"days\">
+                    </div>
+                    <div class=\"bloc\" id=\"hours\">
+                    </div>
+                    <div class=\"bloc\" id=\"minutes\">
+                    </div>
+                    <div class=\"bloc\" id=\"seconds\">
+                    </div>
+                </div>
+            </div>
+          </div> 
+          ";
+}
+
+add_action( 'wp_enqueue_scripts', 'scripts');
+
+function scripts(){
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/js/jquery.min.js');
+    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js');
 }
 
 //Admin link
