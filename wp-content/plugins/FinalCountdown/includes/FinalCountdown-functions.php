@@ -9,7 +9,6 @@ function FinalCountdown_FooterText(){
          <div class=\"wrap\"
             <div class=\"content\">
                 <h1>Coming soon</h1>
-                <p>DU TEXTE</p>
                 <div class=\"numbers\">
                     <div class=\"bloc\" id=\"days\">
                     </div>
@@ -29,9 +28,11 @@ function FinalCountdown_FooterText(){
 add_action( 'wp_enqueue_scripts', 'scripts');
 
 function scripts(){
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/js/jquery.min.js');
-    wp_enqueue_script('script', get_template_directory_uri() . '/assets/js/script.js');
+    wp_enqueue_script('jquery', plugins_url('/jquery.min.js',__FILE__));
+    wp_enqueue_script('script', plugins_url('/script.js',__FILE__));
+    wp_enqueue_style('style', plugins_url('/style.css',__FILE__));
 }
+
 
 //Admin link
 add_action('admin_menu', 'FinalCountdown_AdminLink');
