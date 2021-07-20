@@ -1,19 +1,29 @@
 
 <h1>Réglages Final Countdown</h1>
 
-<h2>Changement du fuseau horaire</h2>
+<h2>Configuration du compte à rebours</h2>
 
 <form action="" method="post">
-    <label for="fuseaux">Choisissez votre fuseau horaire</label>
-    <select name="fuseaux">
-        <option value="">--- Choisissez une option ----</option>
-        <option value="id_du_fuseau">Amérique</option>
-        <option value="id_du_fuseau">Europe</option>
-        <option value="id_du_fuseau">Inde</option>
-    </select>
+    <label for="date">Date</label>
+    <input type="date" id="date" name="date" />
 
-    <input type="submit">
+    <label for="heure">Heure</label>
+    <input type="time" id="heure" name="heure" />
+
+    <input type="submit" onClick="controle()">
 </form>
+
+<script>
+    function controle() {
+    var date = document.getElementById('date');
+    var heure = document.getElementById('heure');
+
+    alert(date.value);
+    alert(heure.value);
+    }
+    
+</script>
+
 
 <?php
     // function getFuseaux(){
