@@ -1,6 +1,6 @@
 <?php
 
-add_action('wp_body_open', 'FinalCountdown_FooterText');
+add_action('wp_footer', 'FinalCountdown_FooterText');
 
 function FinalCountdown_FooterText(){
     echo "<i>Le plugin Final Countdown est activé</i>";
@@ -33,6 +33,12 @@ function scripts(){
     wp_enqueue_style('style', plugins_url('/style.css',__FILE__));
     // wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
 
+}
+
+add_action('admin_enqueue_scripts', 'test');
+
+function test(){
+    wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
 }
 
 

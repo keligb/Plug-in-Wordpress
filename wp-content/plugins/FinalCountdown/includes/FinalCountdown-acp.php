@@ -9,12 +9,11 @@
     <label for="heure">Heure</label>
     <input type="time" id="heure" name="heure" />
 
-    <input type="submit" onClick="controle()">
+    <input type="submit" onClick="lea()">
 </form>
 
-<!-- <script src="/recup-form.js"></script> -->
-<!-- <script>
-    function controle() {
+<script>
+    function lea() {
         var date = document.getElementById('date');
         var heure = document.getElementById('heure');
 
@@ -22,17 +21,17 @@
         var test1 = date.value;
         var test2 = heure.value;
 
-        console.log(test1);
+        // console.log(test1);
         alert(test1.replace(/-/g, ',') + ',' + test2.replace(':', ','));
     }
-</script> -->
+</script>
 
 <?php
-    add_action( 'wp_enqueue_scripts', 'script');
+    // add_action( 'wp_enqueue_scripts', 'script');
 
-    function script(){
-        wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
-    }
+    // function script(){
+    //     wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
+    // }
 ?>
 
 <?php

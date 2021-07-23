@@ -1,9 +1,28 @@
 jQuery(function($){
-    var launch = new Date(2021,06,23,15,13,00);
+
+    // lea();
+
+    // function lea() {
+    //     var date = document.getElementById('date');
+    //     var heure = document.getElementById('heure');
+    
+    
+    //     var test1 = date.value;
+    //     var test2 = heure.value;
+    
+    //     var test3 = test1.replace(/-/g, ',') + ',' + test2.replace(':', ',');
+    
+    
+    //     console.log("coucou");
+    // }
+
+    var launch = new Date(test3 + ',00');
     var days = $('#days');
     var hours = $('#hours');
     var minutes = $('#minutes');
     var seconds = $('#seconds');
+
+    console.log(launch);
 
     setDate();
     function setDate(){
