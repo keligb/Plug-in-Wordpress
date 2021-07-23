@@ -1,4 +1,3 @@
-
 <h1>Réglages Final Countdown</h1>
 
 <h2>Configuration du compte à rebours</h2>
@@ -13,17 +12,28 @@
     <input type="submit" onClick="controle()">
 </form>
 
-<script>
+<!-- <script src="/recup-form.js"></script> -->
+<!-- <script>
     function controle() {
-    var date = document.getElementById('date');
-    var heure = document.getElementById('heure');
+        var date = document.getElementById('date');
+        var heure = document.getElementById('heure');
 
-    alert(date.value);
-    alert(heure.value);
+
+        var test1 = date.value;
+        var test2 = heure.value;
+
+        console.log(test1);
+        alert(test1.replace(/-/g, ',') + ',' + test2.replace(':', ','));
     }
-    
-</script>
+</script> -->
 
+<?php
+    add_action( 'wp_enqueue_scripts', 'script');
+
+    function script(){
+        wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
+    }
+?>
 
 <?php
     // function getFuseaux(){
