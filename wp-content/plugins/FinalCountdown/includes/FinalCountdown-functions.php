@@ -38,7 +38,8 @@ function scripts(){
 add_action('admin_enqueue_scripts', 'test');
 
 function test(){
-    wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
+    wp_enqueue_script('script', plugins_url('/script.js',__FILE__));
+    wp_enqueue_script('jquery', plugins_url('/jquery.min.js',__FILE__));
 }
 
 
