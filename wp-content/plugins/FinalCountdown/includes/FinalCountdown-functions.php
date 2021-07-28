@@ -1,9 +1,8 @@
 <?php
 
-add_action('wp_footer', 'FinalCountdown_FooterText');
+//add_action('wp_footer', 'FinalCountdown_FooterText');
 
 function FinalCountdown_FooterText(){
-    echo "<i>Le plugin Final Countdown est activé</i>";
 
     echo " 
          <div class=\"wrap\"
@@ -22,7 +21,7 @@ function FinalCountdown_FooterText(){
             </div>
           </div> 
           ";
-          var_dump( $result->get_error_data() ) ; exit( 0 ) ;
+          //var_dump( $result->get_error_data() ) ; exit( 0 ) ;
 }
 
 add_action( 'wp_enqueue_scripts', 'scripts');
@@ -31,6 +30,15 @@ function scripts(){
     wp_enqueue_script('jquery', plugins_url('/jquery.min.js',__FILE__));
     wp_enqueue_script('script', plugins_url('/script.js',__FILE__));
     wp_enqueue_style('style', plugins_url('/style.css',__FILE__));
+    // wp_enqueue_script('recup-form', plugins_url('/recup-form.js',__FILE__));
+
+}
+
+add_action('admin_enqueue_scripts', 'test');
+
+function test(){
+    wp_enqueue_script('script', plugins_url('/script.js',__FILE__));
+    wp_enqueue_script('jquery', plugins_url('/jquery.min.js',__FILE__));
 }
 
 
@@ -132,7 +140,7 @@ class FinalCountdown_Widget extends WP_Widget {
             $row = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}final_countdown_table WHERE email='$email'");
 
             if(is_null($row)){
-                $wpdb->insert("{$wpdb->prefix}final_countdown_table", array('email' => $email));
+                $wpdb->insert("{$wpdb->prefix}countdow", array('email' => $email));
             }
         }
     }
@@ -144,3 +152,22 @@ function FinalCountdown_Registerwidgets() {
     register_widget('FinalCountdown_Widget');
 }
 
+function final_countdown_custom_box () {
+    add_meta_box('final-countdown-shortcode', __('Comment intégrer le compte à rebours ?'), 'wp_shrt_final_countdown', 'post', 'side' );
+}
+
+function wp_shrt_final_countdown() {
+    echo '<p>';
+    _e('Pour afficher le shortcode, ajoutez le shortcode suivant à votre page ou à votre article.', 'final-countdown');
+    
+    echo '<p>';
+    echo '<div class="">[FinalCountdown]</div>';
+    
+    echo '<p>';
+    _e('Si vous ajoutez le shortcode aux fichiers de votre thème, ajoutez le code de template suivant.', 'final-countdown');
+    
+    echo '<p>';
+    echo '<div>&lt;?php echo do_shortcode("[FinalCountdown]");?&gt; </div>' ;
+}
+
+add_action('add_meta_boxes', 'final_countdown_custom_box');
